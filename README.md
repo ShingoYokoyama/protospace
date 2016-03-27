@@ -1,18 +1,12 @@
-##データベース設計
+# データベース設計
 
-*prototypes
-:title, :catchcopy, :concept, :user_id
-*users
--:name, :group, :profile, :carrier, :avatar
-*images
--:name, :status, :prototype_id, :status(enum) => main, sub
-*likes
--:prototype_id, :user_id
-*tags
--:text, :prototypes_id, :users_id
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. prototypes
+  :title, :catchcopy, :concept, :user_id
+2. users
+  :name, :group, :profile, :carrier, :avatar
+3. images
+  :name, :status, :prototype_id, :status(enum) => main, sub
+4. likes
+  :prototype_id, :user_id
+5. tags
+  :text, :prototypes_id, :users_id
