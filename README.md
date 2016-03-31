@@ -15,7 +15,6 @@
 
 3. upload_images  
   :name  
-  :status  
   :prototype_id  
   :status(enum) [:main, :sub]  
 
