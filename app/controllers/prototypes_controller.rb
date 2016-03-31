@@ -18,17 +18,6 @@ class PrototypesController < ApplicationController
       render action: :new
     end
 
-  def edit
-  end
-
-  def update
-    if @prototype.update(prototype_params)
-      redirect_to prototype_path
-    else
-      render :edit
-    end
-  end
-
   private
     def create_params
       params.require(:prototype).permit(:title, :catchcopy, :concept, :user_id)
