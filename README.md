@@ -6,7 +6,7 @@
   :concept  
   :user_id
 
-2. users br  
+2. users  
   :name  
   :group  
   :profile  
@@ -21,13 +21,15 @@
 
 4. likes  
   :prototype_id  
-  :user_id br
+  :user_id
 
 5. tags  
   acts-as-taggable-onを使用。
 
 6. comments  
-  :text, :user_id, prototype_id br
+  :text  
+  :user_id  
+  prototype_id
 
 
 # Association
