@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only:[:edit, :update, :show]
 
   def index
-    @prototypes = Prototype.order("created_at DESC").page(params[:page]).per(8)
+    @prototypes = Prototype.order(created_at: :DESC)
   end
 
   def new
@@ -17,6 +17,7 @@ class PrototypesController < ApplicationController
     else
       render action: :new
     end
+  end
 
   private
     def create_params
