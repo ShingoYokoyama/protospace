@@ -5,8 +5,10 @@
   .field
     = f.label :email
     %br/
+
     = f.email_field :email, autofocus: true
+
   .actions
-  
     = f.submit "Send me reset password instructions"
+    
 = render "devise/shared/links"
