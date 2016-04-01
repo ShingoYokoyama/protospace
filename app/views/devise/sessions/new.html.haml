@@ -1,0 +1,12 @@
+.container.form-signin
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    %h2.form-signin-heading Sign in
+    = f.label :email, class: "sr-only", for: "inputEmail"
+    = f.email_field :email, autofocus: true, placeholder: "Mail adress", id: "inputEmail", class: "form-control"
+    = f.label :password, class: "sr-only", for: "inputPassword"
+    = f.password_field :password, autocomplete: "off", placeholder: "Password", required: "", class: "form-control", id: "inputPassword"
+    = f.submit class: 'btn btn-tg btn-primary btn-block', value: 'Login'
+  .text-center
+    %p
+      have a account?
+      = link_to "sign up here", "/users/sign_up"

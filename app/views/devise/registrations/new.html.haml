@@ -1,0 +1,31 @@
+.container.user-new
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    .col-md-8.col-md-offset-2
+      %header.row.user-nav.row
+        .col-md-12
+          %h2 Register
+          .user-name_image.row
+            .user-name.col-md-10
+              = f.text_field :name, autofocus: true, placeholder: "Username"
+            .user-image.col-md-2
+              %button.btn.btn-primary Add image
+              = f.file_field :avatar
+          .user-email
+            = f.email_field :email, autofocus: true, placeholder: "E-Mail"
+          .user-password
+            = f.password_field :password, autocomplete: "off", placeholder: "Password"
+        .col-md-12
+          %h4 Member of
+          .user-user-member.row
+            .user-name.col-md-12
+              = f.text_field :group, autofocus: true, placeholder: "Menber"
+          %h4 Profile
+          .user-user-profile.row
+            .user-name.col-md-12
+              = f.text_area :profile, autofocus: true, placeholder: "Profile"
+          %h4 Works
+          .user-name_image.row
+            .user-name.col-md-12
+              = f.text_area :carrier, autofocus: true, placeholder: "Works"
+      .row.text-center.user-btn
+        = f.submit value: "Save", class: "btn btn-lg btn-primary btn-block"
