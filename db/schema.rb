@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160401171858) do
+
+  create_table "prototypes", force: :cascade do |t|
+    t.string  "title",     limit: 255
+    t.text    "catthcopy", limit: 65535
+    t.text    "concept",   limit: 65535
+    t.integer "user_id",   limit: 4
+  end
+
+  create_table "upload_images", force: :cascade do |t|
+    t.string  "name",         limit: 255
+    t.integer "status",       limit: 4
+    t.integer "prototype_id", limit: 4
+  end
+=======
 ActiveRecord::Schema.define(version: 20160328084711) do
+>>>>>>> master
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255

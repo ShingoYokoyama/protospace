@@ -24,7 +24,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'erb2haml'
+<<<<<<< HEAD
+gem "carrierwave"
+=======
 gem "devise"
+>>>>>>> master
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
