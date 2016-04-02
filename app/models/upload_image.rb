@@ -1,5 +1,5 @@
 class UploadImage < ActiveRecord::Base
-  belongs_to :prototype, dependent: :destroy
+  belongs_to :prototype
 
   enum status: %i(main sub)
 
