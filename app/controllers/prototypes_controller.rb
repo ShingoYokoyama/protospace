@@ -21,7 +21,7 @@ class PrototypesController < ApplicationController
 
   private
     def create_params
-      params.require(:prototype).permit(:title, :catchcopy, :concept, :user_id)
+      params.require(:prototype).permit(:title, :catchcopy, :concept)
     end
 
     def set_prototype
