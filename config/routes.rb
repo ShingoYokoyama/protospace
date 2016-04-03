@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  resources :prototypes, only: [:index, :new, :create]
-=======
+  resources :prototypes, only: [:index, :new, :create, :edit, :update]
   devise_for :users
-  resources :users, only: [:edit, :update, :show]
->>>>>>> master
+  resources :users, only: [:show, :edit, :update]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
