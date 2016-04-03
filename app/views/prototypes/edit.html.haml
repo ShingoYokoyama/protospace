@@ -1,0 +1,52 @@
+- if @prototype.errors.any?
+  .alert.alert-danger
+    %h2
+      = @prototype.errors.count
+      件のエラーが発生しました
+    %ul
+      - @prototype.error_messages.each do |message|
+        %li
+          = message
+.container.proto-new
+  = form_for @prototype do |f|
+    .col-md-8.col-md-offset-2
+      %header.row.user-nav.row
+        .col-md-12
+          = f.text_field :title, placeholder: "Title", class: "proto-new-title"
+      .row
+        .col-md-12
+          .cover-image-upload
+            = f.fields_for :upload_images do |u|
+              = u.file_field :name
+              = u.hidden_field :status, value: :main
+        .col-md-12
+          %ul.proto-sub-list.list-group
+            = f.fields_for :upload_images do |u|
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = u.file_field :name
+                  = u.hidden_field :status, value: :sub
+            = f.fields_for :upload_images do |u|
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = u.file_field :name
+                  = u.hidden_field :status, value: :sub
+            %li.list-group-item.col-md-4
+              .image-upload-plus
+                %span +
+      .row.proto-description
+        .col-md-12
+          = f.text_field :catthcopy, placeholder: "Catch copy"
+        .col-md-12
+          = f.text_area :concept, placeholder: "Concept"
+        .col-md-12
+          %h4 Tag List
+          .row
+            .col-md-3
+              %input{:type => "text", :placeholder => "Web Design"}/
+            .col-md-3
+              %input{:type => "text", :placeholder => "UI"}/
+            .col-md-3
+              %input{:type => "text", :placeholder => "Application"}/
+      .row.text-center.proto-btn
+        = f.submit class: "btn btn-lg btn-primary btn-block", value: "Publish"
