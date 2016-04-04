@@ -1,0 +1,37 @@
+.container.proto-page
+  %header.row.user-nav
+    .col-md-6
+      .media
+        .media-left
+          = link_to user_path(@prototype.user.id) do
+            - if @prototype.user.avatar?
+              = image_tag @prototype.user.avatar.to_s, alt: "64x64", data: { src: "holder.js/64x64", holder: { rendered: "true" } }
+            - else
+              = image_tag "no_avatar.jpg"
+        .media-body
+          %h4#top-aligned-media.media-heading
+            = @prototype.title
+          .proto-user
+            = link_to "by #{@prototype.user.name}", user_path(@prototype.user.id)
+            %span.degree
+              = @prototype.user.carrier
+    .col-md-6.text-right
+      = render partial: 'likes/likes'
+  .row
+    -if @prototype.upload_images.exists?
+      .col-md-9
+        = image_tag(main_image.name, class: 'img-responsive')
+      .col-md-3
+        %ul.proto-sub-list.list-group
+          - sub_images.each do |sub_image|
+            %li.list-group-item
+              = image_tag(sub_image.name, class: 'img-responsive')
+  .row.proto-description
+    .col-md-3
+      %h4 Catch Copy
+      %p
+        = @prototype.catthcopy
+    .col-md-6
+      %h4 Concept
+      %p
+        = @prototype.concept
