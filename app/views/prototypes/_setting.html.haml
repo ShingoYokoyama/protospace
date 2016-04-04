@@ -1,0 +1,8 @@
+%div.dropdown
+  %button.btn.btn-default.dropdown-toggle#dropdownMenu1{ type: 'button', 'data-toggle' => 'dropdown', 'aria-haspopup' => 'true', 'aria-expanded' => 'true'}
+    %span.caret
+  %ul.dropdown-menu{ 'aria-labelledby' => 'dropdownMenu1' }
+    %li
+      = link_to 'Edit', edit_prototype_path(prototype.id)
+    %li
+      = link_to 'Delete', "/prototypes/#{prototype.id}", method: :delete

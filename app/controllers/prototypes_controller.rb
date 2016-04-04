@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-before_action :set_prototype, only: [:edit, :update]
+before_action :set_prototype, only: [:edit, :update, :destroy]
 
   def index
     @prototypes = Prototype.order(created_at: :DESC)
@@ -13,7 +13,7 @@ before_action :set_prototype, only: [:edit, :update]
   def create
     @prototype = current_user.prototypes.new(prototypes_params)
     if @prototype.save
-      redirect_to root_path
+      render action: :index
     else
       render action: :new
     end
@@ -24,20 +24,21 @@ before_action :set_prototype, only: [:edit, :update]
 
   def update
     if @prototype.update(prototypes_params)
-      redirect_to root_path
+      render action: :index
     else
       render action: :edit
     end
   end
 
   def destroy
+    binding.pry
     @prototype.destroy
-    redirect_to root_path
+    redirect_to action: :index
   end
 
   private
     def prototypes_params
-      params.require(:prototype).permit(:title, :catchcopy, :concept)
+      params.require(:prototype).permit({upload_images_attributes: [:name, :status, :id, :_destroy]},:title, :catthcopy, :concept)
     end
 
     def set_prototype
