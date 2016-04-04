@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :prototypes, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :prototypes
   devise_for :users
   resources :users, only: [:show, :edit, :update]
   resources :likes, only: [:create]
