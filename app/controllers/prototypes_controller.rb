@@ -5,6 +5,10 @@ before_action :set_prototype, only: [:edit, :update, :destroy]
     @prototypes = Prototype.order(created_at: :DESC)
   end
 
+  def show
+    @like = Like.new
+  end
+
   def new
     @prototype = Prototype.new
     @prototype.upload_images.build
