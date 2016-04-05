@@ -1,4 +1,4 @@
-class Api::LikesController < ApplicationController
+class LikesController < ApplicationController
     before_action :set_like, only: :destroy
 
   def create

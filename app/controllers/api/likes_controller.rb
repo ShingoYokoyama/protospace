@@ -2,10 +2,10 @@ class LikesController < ApplicationController
     before_action :set_like, only: :destroy
 
   def create
+    binding.pry
     @like = Like.create(create_params)
     @prototype  = @like.prototype
   end
-
   def destroy
     @like.destroy
     @prototype = Prototype.find(@like.prototype_id)
