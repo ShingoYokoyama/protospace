@@ -3,6 +3,6 @@
     %span.caret
   %ul.dropdown-menu{ 'aria-labelledby' => 'dropdownMenu1' }
     %li
-      = link_to 'Edit', edit_prototype_path(prototype.id)
+      = link_to 'Edit', edit_prototype_path(prototype)
     %li
       = link_to 'Delete', "/prototypes/#{prototype.id}", method: :delete
