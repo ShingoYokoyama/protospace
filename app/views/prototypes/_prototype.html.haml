@@ -9,6 +9,7 @@
         = prototype.title
       .proto-meta
         .proto-user
-          = link_to "by #{prototype.user.name}", user_path(prototype.user.id)
+          = link_to "by #{prototype.user.name}", user_path(prototype.user.id), method: :get
         .proto-posted
           = prototype.created_at.strftime("%b %d")
+          

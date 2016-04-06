@@ -31,14 +31,13 @@ before_action :set_prototype, only: [:edit, :update, :destroy]
   end
 
   def destroy
-    binding.pry
     @prototype.destroy
     redirect_to action: :index
   end
 
   private
     def prototypes_params
-      params.require(:prototype).permit({upload_images_attributes: [:name, :status, :id, :_destroy]},:title, :catthcopy, :concept)
+      params.require(:prototype).permit( :title, :catthcopy, :concept, upload_images_attributes: [:name, :status, :id])
     end
 
     def set_prototype
