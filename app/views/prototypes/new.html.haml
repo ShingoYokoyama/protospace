@@ -21,7 +21,6 @@
               = upload.hidden_field :status, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
-          - 2.times do
             = render partial: "file_fields", collection: (2..2).to_a, locals: { f: f }
           %li.list-group-item.col-md-4
             .image-upload-plus
