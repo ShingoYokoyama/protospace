@@ -12,33 +12,29 @@
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
         .col-md-12
-          = f.text_field :title, placeholder: "Title", class: "proto-new-title"
-      .row
+          = f.text_field :title, placeholder: "#{@prototype.title}", class: "proto-new-title"
         .col-md-12
           .cover-image-upload
-            = f.fields_for :upload_images do |upload|
-              = upload.file_field :name
-              = upload.hidden_field :status, value: :main
+            = f.fields_for :upload_images, @prototype.main_image do |upload_image|
+              #edit-upload-main
+                = upload_image.file_field :name
+                = image_tag @prototype.main_image.name, class: 'thumb'
+                = upload_image.hidden_field :status, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
-            = f.fields_for :upload_images do |upload|
+            - @prototype.upload_images.sub.each.with_index do |sub_image, i|
               %li.list-group-item.col-md-4
                 .image-upload
-                  = upoload.file_field :name
-                  = upload.hidden_field :status, value: :sub
-            = f.fields_for :upload_images do |upload|
-              %li.list-group-item.col-md-4
-                .image-upload
-                  = upload.file_field :name
-                  = u.hidden_field :status, value: :sub
-            %li.list-group-item.col-md-4
-              .image-upload-plus
-                %span +
+                  %div{ id: "edit-upload-sub#{i}", style: "height: 100%;" }
+                    = f.fields_for :upload_images, sub_image do |upload_image|
+                      = upload_image.file_field :name
+                      = image_tag sub_image.name, class: 'thumb'
+                      = upload_image.hidden_field :status, value: :sub
       .row.proto-description
         .col-md-12
-          = f.text_field :catthcopy, placeholder: "Catch copy"
+          = f.text_field :catthcopy, placeholder: "#{@prototype.catthcopy}"
         .col-md-12
-          = f.text_area :concept, placeholder: "Concept"
+          = f.text_area :concept, placeholder: "#{@prototype.concept}"
         .col-md-12
           %h4 Tag List
           .row
@@ -50,3 +46,4 @@
               %input{:type => "text", :placeholder => "Application"}/
       .row.text-center.proto-btn
         = f.submit class: "btn btn-lg btn-primary btn-block", value: "Publish"
+

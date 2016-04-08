@@ -5,4 +5,4 @@
     %li
       = link_to 'Edit', edit_prototype_path(prototype)
     %li
-      = link_to 'Delete', "/prototypes/#{prototype.id}", method: :delete
+      = link_to 'Delete', prototype_path(prototype), method: :delete
