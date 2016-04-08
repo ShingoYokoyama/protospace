@@ -22,10 +22,10 @@
                 = upload_image.hidden_field :status, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
-            - @prototype.upload_images.sub.each.with_index do |sub_image, i|
+            - @prototype.upload_images.sub.each do 
               %li.list-group-item.col-md-4
                 .image-upload
-                  %div{ id: "edit-upload-sub#{i}", style: "height: 100%;" }
+                  %div{ id: "edit-upload-sub", style: "height: 100%;" }
                     = f.fields_for :upload_images, sub_image do |upload_image|
                       = upload_image.file_field :name
                       = image_tag sub_image.name, class: 'thumb'

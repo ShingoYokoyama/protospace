@@ -22,7 +22,7 @@
         .col-md-12
           %ul.proto-sub-list.list-group
           - 2.times do
-            = render partial: "file_fields", locals: { f: f }
+            = render partial: "file_fields", collection: (2..2).to_a, locals: { f: f }
           %li.list-group-item.col-md-4
             .image-upload-plus
               %span +
@@ -42,4 +42,5 @@
               = text_field_tag "prototype[tag][]", "", placeholder: "Application"
       .row.text-center.proto-btn
         = f.submit class: "btn btn-lg btn-primary btn-block", value: "Publish"
+
 
