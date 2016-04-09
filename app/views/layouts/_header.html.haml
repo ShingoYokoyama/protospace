@@ -9,9 +9,8 @@
     .navbar-collapse.collapse.navbar-responsive-collapse
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
-
           %li.dropdown
-            %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", href: "#", role: "button"}
+            %a.dropdown-toggle{aria{ expanded: :false}, data{toggle: "dropdown"}, href: "#", role: "button"}
               = current_user.name
               %span.caret
             %ul.dropdown-menu{role: "menu"}
