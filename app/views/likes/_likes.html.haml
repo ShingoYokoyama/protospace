@@ -1,13 +1,13 @@
 .col-md-6.text-right
   - if user_signed_in?
     - if user_like_exists?
-      = button_to likes_path( id: @prototype.user_like(current_user).id, prototype_id: @prototype.id ), method: :delete, class: "btn btn-default", style: "padding-right: 14px;" do
+      = button_to prototype_likes_path( id: @prototype.user_like(current_user).id, prototype_id: @prototype.id ), method: :delete, class: "btn btn-default", style: "padding-right: 14px;" do
         = image_tag "icon_heart_red.png"
         Like
         %span.num
           = @prototype.likes_count
     - else
-      = button_to likes_path( prototype_id: @prototype.id ), class: "btn btn-default" do
+      = button_to prototypes_likes_path( @prototype.id ), class: "btn btn-default" do
         = image_tag "icon_heart.svg"
         Like
         %span.num
@@ -18,4 +18,3 @@
       Like
       %span.num
         = @prototype.likes_count
-        

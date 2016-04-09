@@ -16,17 +16,16 @@
       .row
         .col-md-12
           .cover-image-upload
-            = f.fields_for :upload_images, @prototype.upload_images.main.first do |u|
-              = u.file_field :name
-              = u.hidden_field :status, value: :main
+            = f.fields_for :upload_images, @prototype.upload_images.main.first do |upload|
+              = upload.file_field :name
+              = upload.hidden_field :status, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
-            - 2.times do |i|
-              = f.fields_for :upload_images, @prototype.upload_images.sub[i] do |u|
+              = f.fields_for :upload_images, @prototype.upload_images.sub do |upload|
                 %li.list-group-item.col-md-4
                   .image-upload
-                    = u.file_field :name
-                    = u.hidden_field :status, value: :sub
+                    = upload.file_field :name
+                    = upload.hidden_field :status, value: :sub
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +
