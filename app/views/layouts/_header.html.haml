@@ -10,7 +10,7 @@
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li.dropdown
-            %a.dropdown-toggle{aria{ expanded: :false}, data{toggle: "dropdown"}, href: "#", role: "button"}
+            %a.dropdown-toggle{href: "#", role: "button", aria: { expanded: :false}, data: {toggle: "dropdown"}}
               = current_user.name
               %span.caret
             %ul.dropdown-menu{role: "menu"}

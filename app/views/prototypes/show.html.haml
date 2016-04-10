@@ -3,7 +3,7 @@
     .col-md-6
       .media
         .media-left
-          = link_to user_path(@prototype.user.id) do
+          = link_to user_path(@prototype.user) do
             - if @prototype.user.avatar?
               = image_tag @prototype.user.avatar.to_s, alt: "64x64", data: { src: "holder.js/64x64", holder: { rendered: "true" } }
             - else
@@ -12,11 +12,11 @@
           %h4#top-aligned-media.media-heading
             = @prototype.title
           .proto-user
-            = link_to "by #{@prototype.user.name}", user_path(@prototype.user.id)
+            = link_to "by #{@prototype.user.name}", user_path(@prototype.user)
             %span.degree
               = @prototype.user.carrier
     .col-md-6.text-right
-      = render partial: @likes
+      = render partial: "likes/likes"
   .row
     -if @prototype.upload_images.exists?
       .col-md-9
