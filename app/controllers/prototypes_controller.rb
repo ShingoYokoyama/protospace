@@ -6,6 +6,7 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @protorype = Prototype.find(params[:id])
     @like = Like.new
   end
 
@@ -41,7 +42,6 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   private
     def prototypes_params
-      binding.pry
       params.require(:prototype).permit(:title, :catthcopy, :concept)
     end
 
