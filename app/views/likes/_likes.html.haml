@@ -11,10 +11,10 @@
         = image_tag "icon_heart.svg"
         Like
         %span.num
-          = @prototype.likes.count
+          = @prototype.likes_count
   - else
     = button_tag disabled: 'disabled', class: "btn btn-default" do
       = image_tag "icon_heart.svg"
       Like
       %span.num
-        = @prototype.likes.count
+        = @prototype.likes_count

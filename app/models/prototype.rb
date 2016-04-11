@@ -1,6 +1,6 @@
 class Prototype < ActiveRecord::Base
   has_many :upload_images, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  has_many :likes, dependent: :destroy, counter_cache: :likes_count
   belongs_to :user
   accepts_nested_attributes_for :upload_images
   validates_presence_of :title, :catthcopy, :concept

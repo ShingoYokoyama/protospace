@@ -1,8 +1,9 @@
 class LikesController < ApplicationController
-  
+
   def create
     @like = Like.create(create_params)
     @prototype  = @like.prototype
+    render template: :prototype/show(@prototype)
   end
 
   def destroy
