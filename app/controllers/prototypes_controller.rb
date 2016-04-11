@@ -41,7 +41,8 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   private
     def prototypes_params
-      params.require(:prototype).permit(upload_images_attributes: [:name, :status, :id, :_destroy], :title, :catthcopy, :concept)
+      binding.pry
+      params.require(:prototype).permit(:title, :catthcopy, :concept)
     end
 
     def set_prototype

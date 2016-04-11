@@ -1,5 +1,0 @@
-= f.fields_for :upload_images, @prototype.upload_images.sub do |upload|
-  %li.list-group-item.col-md-4
-    .image-upload
-      = upload.file_field :name
-      = upload.hidden_field :status, value: :sub
