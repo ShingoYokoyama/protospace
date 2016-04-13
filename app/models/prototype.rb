@@ -16,6 +16,7 @@ class Prototype < ActiveRecord::Base
   def prototype_images
     upload_images
   end
+  
 
 
 
