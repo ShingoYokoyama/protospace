@@ -20,10 +20,10 @@
   .row
     -if @prototype.upload_images.exists?
       .col-md-9
-        = image_tag(main_image.name, class: 'img-responsive')
+        = image_tag(@prototype.upload_images.main.name, class: 'img-responsive')
       .col-md-3
         %ul.proto-sub-list.list-group
-          - sub_images.each do |sub_image|
+          - @prototype.upload_images.sub.each do |sub_image|
             %li.list-group-item
               = image_tag(sub_image.name, class: 'img-responsive')
   .row.proto-description

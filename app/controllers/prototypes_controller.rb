@@ -6,8 +6,6 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-    @protorype = Prototype.find(params[:id])
-    @like = Like.new
   end
 
   def new
@@ -17,6 +15,7 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def create
     @prototype = current_user.prototypes.new(prototypes_params)
+    @prototypes = Prototype.order(created_at: :DESC)
     if @prototype.save
       render action: :index
     else
@@ -42,7 +41,7 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   private
     def prototypes_params
-      params.require(:prototype).permit(:title, :catthcopy, :concept)
+      params.require(:prototype).permit(:title, :catthcopy, :concept,upload_images_attributes: [:name, :status, :prototype_id] )
     end
 
     def set_prototype

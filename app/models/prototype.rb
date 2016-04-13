@@ -9,18 +9,6 @@ class Prototype < ActiveRecord::Base
     errors.full_messages
   end
 
-  def user_like(user)
-    likes.find_by user_id: user.id
-  end
-
-   def main_image
-    upload_images.main.first
-  end
-
-  def sub_images
-    upload_images.sub
-  end
-
   def prototype_user
     user
   end
@@ -29,8 +17,6 @@ class Prototype < ActiveRecord::Base
     upload_images
   end
 
-  def user_like_exists?
-    user_like(current_user) ? true : false
-  end
+
 
 end

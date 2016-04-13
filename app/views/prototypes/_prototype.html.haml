@@ -3,7 +3,7 @@
     = render partial: 'prototypes/setting', locals: { prototype: prototype }
 .thumbnail
   = link_to prototype_path(prototype.id) do
-    = image_tag prototype.upload_images.main.first.name
+    = image_tag prototype.upload_images.main.name
     .caption
       %h3
         = prototype.title

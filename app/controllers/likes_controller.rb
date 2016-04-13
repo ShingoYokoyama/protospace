@@ -1,18 +1,20 @@
 class LikesController < ApplicationController
 
   def create
-    @like = Like.create(create_params)
+    @like = Like.create(like_params)
     @prototype  = @like.prototype
-    render template: :prototype/show(@prototype)
+    render "prototypes/show", locals: {id: @prototype.id}
   end
 
   def destroy
-    like = Like.find_by(user_id: current_user.id, prototype_id: params[:id])
-    like.destroy
+    binding.pry
+    Like.find(like_params[:id]).destroy
+    @prototype = Prototype.find(params[:prototype_id])
+    render "prototypes/show",  locals: {id: @prototype.id}
   end
 
   private
-    def create_params
-      params.permit(:prototype_id).merge(user_id: current_user.id)
+    def like_params
+      params.permit(:id, :prototype_id).merge(user_id: current_user.id)
     end
 end
