@@ -1,7 +1,7 @@
 .col-md-6.text-right
   - if user_signed_in?
     - if @prototype.user_like_exists?(current_user)
-      = button_to prototype_like_path( id: @prototype.user_like(current_user), prototype_id: @prototype.id ), method: :post, class: "btn btn-default", style: "padding-right: 14px;" do
+      = button_to prototype_like_path( id: @prototype.user_like(current_user), prototype_id: @prototype.id ), class: "btn btn-default", style: "padding-right: 14px;" do
         = image_tag "icon_heart_red.png"
         Like
         %span.num
