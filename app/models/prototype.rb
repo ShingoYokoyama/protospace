@@ -9,14 +9,14 @@ class Prototype < ActiveRecord::Base
     errors.full_messages
   end
 
-  def prototype_user
-    user
+  def user_like(user)
+    likes.find_by(user_id: user.id).id
   end
 
-  def prototype_images
-    upload_images
+  def user_like_exists?(user)
+    user_like(user) ? true : false
   end
-  
+
 
 
 

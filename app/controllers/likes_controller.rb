@@ -7,7 +7,6 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    binding.pry
     Like.find(like_params[:id]).destroy
     @prototype = Prototype.find(params[:prototype_id])
     render "prototypes/show",  locals: {id: @prototype.id}
