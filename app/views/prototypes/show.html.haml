@@ -20,7 +20,7 @@
   .row
     -if @prototype.upload_images.exists?
       .col-md-9
-        = image_tag(@prototype.upload_images.main.name, class: 'img-responsive')
+        = image_tag(@prototype.upload_images.main.first.name, class: 'img-responsive')
       .col-md-3
         %ul.proto-sub-list.list-group
           - @prototype.upload_images.sub.each do |sub_image|

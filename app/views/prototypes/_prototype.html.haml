@@ -2,7 +2,7 @@
   - if user_signed_in? && current_user.id == prototype.user_id
     = render partial: 'prototypes/setting', locals: { prototype: prototype }
   .thumbnail
-    = link_to prototype_path(prototype.id) do
+    = link_to prototype_path(prototype) do
       = image_tag prototype.upload_images.main.first.name
       .caption
         %h3
