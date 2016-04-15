@@ -17,7 +17,7 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
     @prototype = current_user.prototypes.new(prototypes_params)
     @prototypes = Prototype.order(created_at: :DESC)
     if @prototype.save
-      render action: :index
+      redirect_to root_path
     else
       render action: :new
     end
