@@ -5,7 +5,7 @@
         .media-left
           = link_to user_path(@prototype.user) do
             - if @prototype.user.avatar?
-              = image_tag @prototype.user.avatar.to_s, alt: "64x64", data: { src: "holder.js/64x64", holder: { rendered: "true" } }
+              = image_tag @prototype.user.avatar, alt: "64x64", data: { src: "holder.js/64x64", holder: { rendered: "true" } }
             - else
               = image_tag "no_avatar.jpg"
         .media-body
@@ -23,9 +23,7 @@
         = image_tag(@prototype.upload_images.main.first.name, class: 'img-responsive')
       .col-md-3
         %ul.proto-sub-list.list-group
-          - @prototype.upload_images.sub.each do |sub_image|
-            %li.list-group-item
-              = image_tag(sub_image.name, class: 'img-responsive')
+          = render partial:"sub_image", collection: @prototype.upload_images.sub
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
