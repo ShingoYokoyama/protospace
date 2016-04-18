@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :prototypes, only: [:index, :new, :create, :edit, :update, :destroy]
+=======
+  resources :prototypes do
+    resources :likes, only: [:create, :destroy]
+  end
+>>>>>>> Like・コメント機能の実装
   root "prototypes#index"
   devise_for :users
   resources :users, only: [:show, :edit, :update]

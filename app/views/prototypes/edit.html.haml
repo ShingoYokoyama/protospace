@@ -22,6 +22,7 @@
                 = upload_image.hidden_field :status, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
+<<<<<<< HEAD
             - @prototype.upload_images.sub.each do 
               %li.list-group-item.col-md-4
                 .image-upload
@@ -30,6 +31,12 @@
                       = upload_image.file_field :name
                       = image_tag sub_image.name, class: 'thumb'
                       = upload_image.hidden_field :status, value: :sub
+=======
+            = render :partial "file_fields", collection: (2..2).to_a, locals: { f: f}
+            %li.list-group-item.col-md-4
+              .image-upload-plus
+                %span +
+>>>>>>> Like・コメント機能の実装
       .row.proto-description
         .col-md-12
           = f.text_field :catthcopy, placeholder: "#{@prototype.catthcopy}"

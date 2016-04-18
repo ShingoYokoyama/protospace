@@ -5,6 +5,7 @@
   :catchcopy  
   :concept  
   :user_id  
+  :likes_count  
 
 2. users  
   :name  
