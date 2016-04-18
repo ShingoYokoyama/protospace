@@ -1,20 +1,6 @@
 .col-sm-4.col-md-3.proto-content
   - if user_signed_in? && current_user.id == prototype.user_id
     = render partial: 'prototypes/setting', locals: { prototype: prototype }
-<<<<<<< HEAD
-.thumbnail
-  = link_to prototype_path(prototype), method: :get do
-    = image_tag prototype.upload_images.main.first.name
-    .caption
-      %h3
-        = prototype.title
-      .proto-meta
-        .proto-user
-          = link_to "by #{prototype.user.name}", user_path(prototype.user), method: :get
-        .proto-posted
-          = prototype.created_at.strftime("%b %d")
-          
-=======
   .thumbnail
     = link_to prototype_path(prototype) do
       = image_tag prototype.upload_images.main.first.name
@@ -28,4 +14,4 @@
             = prototype.created_at.strftime("%b %d")
             .form-group.col-md-2
               %button.btn.btn-primary Comment
->>>>>>> Like・コメント機能の実装
+

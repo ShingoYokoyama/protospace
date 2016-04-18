@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
 before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def index
-    @prototypes = Prototype.order(created_at: :DESC)
+    @prototypes = Prototype.order(created_at: :DESC).includes(:user)
   end
 
   def show
@@ -15,7 +15,7 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def create
     @prototype = current_user.prototypes.new(prototypes_params)
-    @prototypes = Prototype.order(created_at: :DESC)
+    @prototypes = Prototype.order(created_at: :DESC).include(:user)
     if @prototype.save
       redirect_to root_path
     else
@@ -41,11 +41,7 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   private
     def prototypes_params
-<<<<<<< HEAD
-      params.require(:prototype).permit( :title, :catthcopy, :concept, upload_images_attributes: [:name, :status, :id])
-=======
       params.require(:prototype).permit(:title, :catthcopy, :concept,upload_images_attributes: [:name, :status, :prototype_id] )
->>>>>>> Like・コメント機能の実装
     end
 
     def set_prototype
