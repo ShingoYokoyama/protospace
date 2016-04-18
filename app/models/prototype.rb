@@ -15,6 +15,6 @@ class Prototype < ActiveRecord::Base
   end
 
   def user_like_exists?(user)
-    user_like(user) ? true : false
+    user_like(user) ? false : true
   end
 end

@@ -16,7 +16,7 @@
             %span.degree
               = @prototype.user.carrier
     .col-md-6.text-right
-      = render @prototype.likes
+      = render partial: "likes/like"
   .row
     -if @prototype.upload_images.exists?
       .col-md-9
