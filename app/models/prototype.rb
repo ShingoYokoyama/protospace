@@ -1,7 +1,7 @@
 class Prototype < ActiveRecord::Base
-  belongs_to :user
   has_many :upload_images, dependent: :destroy
   has_many :likes, dependent: :destroy, counter_cache: :likes_count
+  has_many :comments, dependent: :destroy
   belongs_to :user
 
   accepts_nested_attributes_for :upload_images
