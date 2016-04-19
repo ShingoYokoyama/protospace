@@ -33,3 +33,20 @@
       %h4 Concept
       %p
         = @prototype.concept
+  .row.proto-comments
+    %h4.col-md-12
+      Comments
+      %span.num#comments_count (#{@prototype.comments.count})
+    .col-md-8
+      #comments_text
+        = render @comments
+      .form-inline
+        = form_for [@prototype, @comment] do |f|
+          %h4 Write a comment
+          .row
+            .form-group.col-md-10
+              = f.text_area :text, class: "form-control", placeholder: "Your comments", rows: "3"
+              = f.hidden_field :prototype_id, value: @prototype.id
+            .form-group.col-md-2
+              = f.submit class: "btn btn-primary", value: "Comment"
+
