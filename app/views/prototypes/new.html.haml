@@ -13,20 +13,6 @@
       %header.row.user-nav.row
         .col-md-12
           = f.text_field :title, placeholder: "Title", class: "proto-new-title"
-<<<<<<< HEAD
-        .row
-        .col-md-12
-          .cover-image-upload
-            = f.fields_for :upload_images do |upload|
-              = upload.file_field :name
-              = upload.hidden_field :status, value: :main
-        .col-md-12
-          %ul.proto-sub-list.list-group
-            = render partial: "file_fields", collection: (2..2).to_a, locals: { f: f }
-          %li.list-group-item.col-md-4
-            .image-upload-plus
-              %span +
-=======
       .row
         .col-md-12
           .cover-image-upload#upload-main
@@ -48,28 +34,10 @@
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +
->>>>>>> Like・コメント機能の実装
       .row.proto-description
         .col-md-12
           = f.text_field :catthcopy, placeholder: "Catch copy"
         .col-md-12
           = f.text_area :concept, placeholder: "Concept"
-<<<<<<< HEAD
-        .col-md-12
-          %h4 Tag List
-          .row
-            .col-md-3
-              = text_field_tag "prototype[tag][]", "", placeholder: "Web Design"
-            .col-md-3
-              = text_field_tag "prototype[tag][]", "", placeholder: "UI"
-            .col-md-3
-              = text_field_tag "prototype[tag][]", "", placeholder: "Application"
       .row.text-center.proto-btn
         = f.submit class: "btn btn-lg btn-primary btn-block", value: "Publish"
-
-
-=======
-      .row.text-center.proto-btn
-        = f.submit class: "btn btn-lg btn-primary btn-block", value: "Publish"
-
->>>>>>> Like・コメント機能の実装
