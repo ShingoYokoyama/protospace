@@ -15,7 +15,7 @@
             = link_to "by #{@prototype.user.name}", user_path(@prototype.user)
             %span.degree
               = @prototype.user.carrier
-    .col-md-6.text-right
+    #likes
       = render partial: "likes/like"
   .row
     -if @prototype.upload_images.exists?
