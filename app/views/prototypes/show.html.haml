@@ -41,7 +41,7 @@
       #comments_text
         = render @comments
       .form-inline
-        = form_for [@prototype, @comment] do |f|
+        = form_for [@prototype, @comment], remote: true do |f|
           %h4 Write a comment
           .row
             .form-group.col-md-10
