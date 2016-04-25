@@ -6,6 +6,8 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @comment = Comment.new
+    @comments = @prototype.comments.includes(:user)
   end
 
   def new
