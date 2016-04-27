@@ -4,5 +4,6 @@ class TagsController < ApplicationController
   end
 
   def show
+    @prototypes = Prototype.tagged_with(params[:id]).includes(:tags, :user)
   end
 end
