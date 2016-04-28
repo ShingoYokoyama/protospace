@@ -9,7 +9,7 @@
   .row
     #prototype_order
       %ul.nav.nav-pills.col-lg-11
-        %li{:role => "presentation"}
+        %li
           %h4 Newest
           = render partial: "prototypes/prototype", collection: @newest_ordered_prototypes
         %li
