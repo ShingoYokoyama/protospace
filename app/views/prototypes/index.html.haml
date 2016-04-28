@@ -8,5 +8,11 @@
 .container.proto-list
   .row
     #prototype_order
-      = render @prototypes
+      %ul.nav.nav-pills.col-lg-11
+        %li{:role => "presentation"}
+          %h4 Newest
+          = render partial: "prototypes/prototype", collection: @newest_ordered_prototypes
+        %li
+          %h4 Popular
+          = render partial: "prototypes/prototype", collection: @popular_ordered_prototypes
 
