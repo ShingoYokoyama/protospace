@@ -3,6 +3,7 @@ class Prototype < ActiveRecord::Base
   has_many :likes, dependent: :destroy, counter_cache: :likes_count
   has_many :comments, dependent: :destroy
   belongs_to :user
+  acts_as_taggable_on :tags
 
   accepts_nested_attributes_for :upload_images
   validates_presence_of :title, :catthcopy, :concept

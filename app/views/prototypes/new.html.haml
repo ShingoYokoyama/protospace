@@ -39,5 +39,14 @@
           = f.text_field :catthcopy, placeholder: "Catch copy"
         .col-md-12
           = f.text_area :concept, placeholder: "Concept"
+        .col-md-12
+          %h4 Tag List
+          .row
+            .col-md-3
+              = text_field_tag 'prototype[tag_list][]', "", placeholder: "Web Design"
+            .col-md-3
+              = text_field_tag 'prototype[tag_list][]', "", placeholder: "UI"
+            .col-md-3
+              = text_field_tag 'prototype[tag_list][]', "", placeholder: "Application"
       .row.text-center.proto-btn
-        = f.submit class: "btn btn-lg btn-primary btn-block", value: "Publish"
+        =f.submit class: "btn btn-lg btn-primary btn-block", value: "Publish"
