@@ -2,7 +2,8 @@ class PrototypesController < ApplicationController
 before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def index
-    @prototypes = Prototype.order(created_at: :DESC).includes(:user)
+    @newest_ordered_prototypes = Prototype.order(created_at: :DESC).includes(:user)
+    @popular_ordered_prototypes = Prototype.order(likes_count: :DESC).includes(:user)
   end
 
   def show
