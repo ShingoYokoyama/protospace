@@ -7,7 +7,7 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def popular_index
     @prototypes = Prototype.order(likes_count: :DESC).includes(:user)
-    redirect_to action: :index
+    render action: :index
   end
 
   def show
