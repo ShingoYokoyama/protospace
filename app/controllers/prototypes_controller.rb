@@ -5,6 +5,11 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
     @prototypes = Prototype.order(created_at: :DESC).includes(:user)
   end
 
+  def popular_index
+    @prototypes = Prototype.order(likes_count: :DESC).includes(:user)
+    render action: :index
+  end
+
   def show
     @comment = Comment.new
     @comments = @prototype.comments.includes(:user)

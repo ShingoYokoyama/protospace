@@ -8,5 +8,12 @@
 .container.proto-list
   .row
     #prototype_order
-      = render @prototypes
-
+      %ul.nav.nav-pills.col-lg-11
+        %li
+          %h4
+          = link_to "Newest", root_path, remote: true
+          .proto
+            = render @prototypes
+        %li
+          %h4
+          = link_to "Popular", popular_index_prototypes_path, remote: true
