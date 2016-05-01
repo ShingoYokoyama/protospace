@@ -6,9 +6,9 @@
         .user-name_image.row
           .user-name.col-md-10
             %input{:type => "text", :placeholder => "Username"}/
-          .user-image.col-md-2
+          .user-image.col-md-2.preview
             %button.btn.btn-primary Add image
-            %input{:type => "file"}/
+            %input{:type => "file"}
         %input.user-email{:type => "email", :placeholder => "E-Mail"}/
         %input.user-password{:type => "password", :placeholder => "Password"}/
       .col-md-12
@@ -26,4 +26,3 @@
             %textarea{:name => "textarea", :cols => "30", :rows => "4", :placeholder => "Works"}
     .row.text-center.user-btn
       %button.btn.btn-lg.btn-primary.btn-block{:type => "submit"} Save
-      
