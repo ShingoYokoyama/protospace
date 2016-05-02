@@ -28,7 +28,7 @@ $(window).on("load", function() {
                     'background-size': 'contain'
                 }):
             };
-            fileReader.readAsDataURL(file)
+            fileReader.readAsDataURL(file);
         });
     });
 })
