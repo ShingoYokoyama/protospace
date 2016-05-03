@@ -15,19 +15,20 @@
           = f.text_field :title, placeholder: "Title", class: "proto-new-title"
       .row
         .col-md-12
-          .cover-image-upload#upload-main
+          .cover-image-upload.preview
+            = image_tag("", class: "thumb", style: "height: 500px")
             = f.fields_for :upload_images do |upload_image|
               = upload_image.file_field :name
               = upload_image.hidden_field :status, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
             %li.list-group-item.col-md-4
-              .image-upload#upload-sub1
+              .image-upload#upload-sub1.preview
                 = f.fields_for :upload_images do |upload_image|
                   = upload_image.file_field :name
                   = upload_image.hidden_field :status, value: :sub
             %li.list-group-item.col-md-4
-              .image-upload#upload-sub2
+              .image-upload#upload-sub2.preview
                 = f.fields_for :upload_images do |upload_image|
                   = upload_image.file_field :name
                   = upload_image.hidden_field :status, value: :sub

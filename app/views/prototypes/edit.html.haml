@@ -14,7 +14,7 @@
         .col-md-12
           = f.text_field :title, placeholder: "#{@prototype.title}", class: "proto-new-title"
         .col-md-12
-          .cover-image-upload
+          .cover-image-upload.preview
             = f.fields_for :upload_images, @prototype.main_image do |upload_image|
               #edit-upload-main
                 = upload_image.file_field :name
@@ -22,21 +22,18 @@
                 = upload_image.hidden_field :status, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
-<<<<<<< HEAD
             - @prototype.upload_images.sub.each do 
               %li.list-group-item.col-md-4
-                .image-upload
+                .image-upload.preview
                   %div{ id: "edit-upload-sub", style: "height: 100%;" }
                     = f.fields_for :upload_images, sub_image do |upload_image|
                       = upload_image.file_field :name
                       = image_tag sub_image.name, class: 'thumb'
                       = upload_image.hidden_field :status, value: :sub
-=======
             = render :partial "file_fields", collection: (2..2).to_a, locals: { f: f}
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +
->>>>>>> Like・コメント機能の実装
       .row.proto-description
         .col-md-12
           = f.text_field :catthcopy, placeholder: "#{@prototype.catthcopy}"
