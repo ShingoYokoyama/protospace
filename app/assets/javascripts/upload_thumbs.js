@@ -1,8 +1,16 @@
-$(window).on("load", function() {
-    $('.plus').on('click', function() {
-        $('.appear').show();
-        $(this).hide();
-    });
+$(function() {
+  // 初期状態では表示されないものを隠す
+  $('.default-hide').hide();
+
+  // プラスボタンが押されたときにフォームを追加する
+  $('.image-upload-plus').click(function() {
+    $(this).hide();
+
+    var parent = $(this).parent();
+    var uploadForm = parent.find('.image-upload')
+    uploadForm.show();
+  });
+
     $('.preview').each(function() {
         // previewクラスを配列でたくさん取ってくる
         // それぞれにfunction()を行う
@@ -26,7 +34,7 @@ $(window).on("load", function() {
                     'background-image': 'url(' + fileReader.result + ')',
                     // background-imageプロパティをfileReaderのresultに書き換える
                     'background-size': 'contain'
-                }):
+                });
             };
             fileReader.readAsDataURL(file);
         });
