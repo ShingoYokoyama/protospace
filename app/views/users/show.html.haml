@@ -1,0 +1,30 @@
+.container.user-page
+  %header.user-nav
+    .media
+      .media-left
+        - if @user.avatar?
+          = image_tag @user.avatar.to_s, alt: "64x64", data: { src: "holder.js/64x64", holder: { rendered: "true" } }
+        - else
+          = image_tag "no_avatar.jpg"
+      .media-body
+        %h4#top-aligned-media.media-heading
+          = @user.name
+          %span.label.label-default.project-number
+            = @user.prototypes.count
+            %i Projects
+        .proto-user
+          %span.degree= @user.group
+        .row
+          .col-md-6
+            %h4 Profile
+            %p= @user.profile
+          .col-md-6
+            %h4 Works
+            %p= @user.carrier
+.container.proto-list
+  .row#container
+    - if @user.prototypes.exists?
+      = render partial: "prototypes/prototype", collection: @user.prototypes
+    - else
+      %h3
+        ※プロジェクトがありません
