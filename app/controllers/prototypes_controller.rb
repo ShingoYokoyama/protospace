@@ -2,11 +2,11 @@ class PrototypesController < ApplicationController
 before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def index
-    @prototypes = Prototype.order("created_at DESC").includes(:user)
+    @prototypes = Prototype.order(created_at: :DESC).includes(:user)
   end
 
   def popular_index
-    @prototypes = Prototype.order("likes_count DESC").includes(:user)
+    @prototypes = Prototype.order(likes_count: :DESC).includes(:user)
     render action: :index
   end
 
@@ -22,7 +22,7 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def create
     @prototype = current_user.prototypes.new(prototypes_params)
-    @prototypes = Prototype.order("created_at DESC").include(:user)
+    @prototypes = Prototype.order(created_at: :DESC).include(:user)
     if @prototype.save
       render root_path
     else
