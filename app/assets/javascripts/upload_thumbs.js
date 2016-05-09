@@ -7,7 +7,7 @@ $(function() {
     $(this).hide();
 
     var parent = $(this).parent();
-    var uploadForm = parent.find('.image-upload')
+    var uploadForm = parent.find('.image-upload');
     uploadForm.show();
   });
 
