@@ -6,24 +6,24 @@
           %h2 Edit Profile
           .user-name_image.row
             .user-name.col-md-10
-              = f.text_field :name, placeholder: "#{@user.name}"
+              = f.text_field :name, placeholder: @user.name
             .user-image.col-md-2.preview{style: 'background-image url:(http//泣け:る動画.com/wp-content/uploads/2015/01/t0205-01.jpg);'}
               %button.btn.btn-primary Change image
               %input{type: "file"}/
-          = f.text_field :email, placeholder: "#{@user.email}"
+          = f.text_field :email, placeholder: @user.email
           = f.text_field :password, placeholder: "Password"
         .col-md-12
           %h4 Member of
           .user-user-member.row
             .user-name.col-md-12
-              = f.text_field :group, placeholder: "#{@user.group}"
+              = f.text_field :group, placeholder: @user.group
           %h4 Profile
           .user-user-profile.row
             .user-name.col-md-12
-              = f.text_field :profile, name: "textarea", cols: "30", rows: "4", placeholder: "#{@user.profile}"
+              = f.text_field :profile, name: "textarea", cols: "30", rows: "4", placeholder: @user.profile
           %h4 Works
           .user-name_image.row
             .user-name.col-md-12
-              = f.text_field :carrier, name: "textarea", cols: "30", rows: "4", placeholder: "#{@user.carrier}"
+              = f.text_field :carrier, name: "textarea", cols: "30", rows: "4", placeholder: @user.carrier
       .row.text-center.user-btn
         %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Save
