@@ -22,9 +22,8 @@ before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def create
     @prototype = current_user.prototypes.new(prototypes_params)
-    @prototypes = Prototype.order(created_at: :DESC).include(:user)
     if @prototype.save
-      render root_path
+      redirect_to root_path
     else
       render action: :new
     end
