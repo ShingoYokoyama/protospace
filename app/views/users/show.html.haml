@@ -24,7 +24,7 @@
 .container.proto-list
   .row#container
     - if @user.prototypes.exists?
-      = render partial: "prototypes/prototype", collection: @user.prototypes
+      = render @user.prototypes
     - else
       %h3
-        ※プロジェクトがありません
+        ※プロジェクトがありません   
